@@ -2,10 +2,18 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashRanchController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/ranch', [DashRanchController::class, 'ShowPage'])->name('show_page');
+Route::post('/ranch', [DashRanchController::class, 'AddRanch'])->name('add_ranch');
+Route::patch('/ranch', [DashRanchController::class, 'UpdateRanch'])->name('update_ranch');
+Route::delete('/ranch', [DashRanchController::class, 'DeleteRanch'])->name('delete_ranch');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
