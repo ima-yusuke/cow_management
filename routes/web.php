@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashCowController;
 use App\Http\Controllers\DashCattleBarnController;
 use App\Http\Controllers\DashRanchController;
 use App\Http\Controllers\DashStatusController;
@@ -9,6 +10,12 @@ use App\Http\Controllers\DashStatusController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//牛登録
+Route::get('/cow', [DashCowController::class, 'ShowPage'])->name('show_page');
+Route::post('/cow', [DashCowController::class, 'AddCow'])->name('add_cow');
+Route::patch('/cow', [DashCowController::class, 'UpdateCow'])->name('update_cow');
+Route::delete('/cow', [DashCowController::class, 'DeleteCow'])->name('delete_cow');
 
 //牧場
 Route::get('/ranch', [DashRanchController::class, 'ShowPage'])->name('show_page');
