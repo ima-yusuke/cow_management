@@ -14,6 +14,7 @@ for (let i=0;i<EditBtns.length;i++){
             EditBtns[i].innerText = "更新";
             pElement.style.display = "none";
             inputElement.classList.remove("hidden");
+            inputElement.value = pElement.innerText;
         }
     })
 }
