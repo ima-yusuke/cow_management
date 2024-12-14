@@ -1,7 +1,22 @@
 <x-app-layout>
     <form class="md:m-6 flex flex-col gap-6">
-        <x-dash-register-cow title="名前">
-            <input type="text" name="name" class="md:flex-1 md:m-0 m-6">
+        <x-dash-register-cow title="名号">
+            <input type="text" name="name" class="md:flex-1 md:m-0 m-6" placeholder="工">
+        </x-dash-register-cow>
+
+        <x-dash-register-cow title="耳標番号">
+            <input type="number" name="tag_num" class="md:flex-1 md:m-0 m-6" placeholder="5851">
+        </x-dash-register-cow>
+
+        <x-dash-register-cow title="生年月日">
+            <input type="date" name="birthday" class="md:flex-1 md:m-0 m-6">
+        </x-dash-register-cow>
+
+        <x-dash-register-cow title="性別">
+            <select name="sex" class="md:flex-1 md:m-0 m-6">
+                <option value="0">オス</option>
+                <option value="1">メス</option>
+            </select>
         </x-dash-register-cow>
 
         <x-dash-register-cow title="牧場">
@@ -37,6 +52,14 @@
                         <option value="{{$status["id"]}}">{{$status["name"]}}</option>
                     @endforeach
                 @endif
+            </select>
+        </x-dash-register-cow>
+
+        <x-dash-register-cow title="親">
+            <select name="parent" class="md:flex-1 md:m-0 m-6">
+                <option value="0">中村</option>
+                <option value="1">今井</option>
+                <option value="2">平</option>
             </select>
         </x-dash-register-cow>
     </form>
