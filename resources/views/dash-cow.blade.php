@@ -13,9 +13,19 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="性別">
-            <select name="sex" class="md:flex-1 md:m-0 m-6">
+            <select name="sex" class="md:flex-1 md:m-0 m-6" id="sex_select">
                 <option value="0">オス</option>
                 <option value="1">メス</option>
+            </select>
+        </x-dash-register-cow>
+
+        <x-dash-register-cow title="区分">
+            <select name="category" class="md:flex-1 md:m-0 m-6" id="category_select">
+                <option value="0">子</option>
+                <option value="1" class="male">父</option>
+                <option value="2" class="male">祖父</option>
+                <option value="3" class="hidden female">母</option>
+                <option value="4" class="hidden female">祖母</option>
             </select>
         </x-dash-register-cow>
 
@@ -43,10 +53,18 @@
             </select>
         </x-dash-register-cow>
 
-        <x-dash-register-cow title="ステータス">
+        <x-dash-register-cow title="種牛">
+            <select name="parent" class="md:flex-1 md:m-0 m-6">
+                <option value="0">中村</option>
+                <option value="1">今井</option>
+                <option value="2">平</option>
+            </select>
+        </x-dash-register-cow>
+
+        <x-dash-register-cow title="状態">
             <select name="status" class="md:flex-1 md:m-0 m-6">
                 @if(count($statusArray)<1)
-                    <option value="0">ステータスが登録されていません</option>
+                    <option value="0">状態が登録されていません</option>
                 @else
                     @foreach($statusArray as $status)
                         <option value="{{$status["id"]}}">{{$status["name"]}}</option>
@@ -55,12 +73,5 @@
             </select>
         </x-dash-register-cow>
 
-        <x-dash-register-cow title="親">
-            <select name="parent" class="md:flex-1 md:m-0 m-6">
-                <option value="0">中村</option>
-                <option value="1">今井</option>
-                <option value="2">平</option>
-            </select>
-        </x-dash-register-cow>
     </form>
 </x-app-layout>
