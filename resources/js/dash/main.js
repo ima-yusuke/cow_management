@@ -23,12 +23,12 @@ for (let i=0;i<EditBtns.length;i++){
 // セレクトボックスを取得
 const SexSelect = document.getElementById('sex_select');
 const CategorySelect = document.getElementById('category_select');
+let males = document.getElementsByClassName('male');
+let females = document.getElementsByClassName('female');
 
 // 値が変更されたときのイベントリスナーを追加
 SexSelect.addEventListener('change', (event) => {
     const selectedValue = event.target.value; // 選択された値を取得
-    let males = document.getElementsByClassName('male');
-    let females = document.getElementsByClassName('female');
 
     if (selectedValue === '0') {
         // オス選択時の処理
@@ -72,4 +72,9 @@ function HideOption(option){
     newDiv.appendChild(option);
     newDiv.classList.add("hidden");
     CategorySelect.appendChild(newDiv);
+}
+
+// メスのoptionを非表示にする
+for(let i=0;i<females.length;i++){
+    HideOption(females[0]);
 }

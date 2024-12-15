@@ -24,8 +24,8 @@
                 <option value="0">子</option>
                 <option value="1" class="male">父</option>
                 <option value="2" class="male">祖父</option>
-                <div class="hidden"><option value="3" class="female">母</option></div>
-                <div class="hidden"><option value="4" class="female">祖母</option></div>
+                <option value="3" class="female">母</option>
+                <option value="4" class="female">祖母</option>
             </select>
         </x-dash-register-cow>
 
