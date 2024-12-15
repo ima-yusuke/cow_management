@@ -4,5 +4,6 @@
         <x-dash-menu link="/ranch" icon="fa-tree" title="牧場登録"/>
         <x-dash-menu link="/cattle-barn" icon="fa-house" title="牛舎登録"/>
         <x-dash-menu link="/status" icon="fa-heart-circle-plus" title="状態登録"/>
+        <x-dash-menu link="/parent-cow" icon="fa-person-breastfeeding" title="種牛登録"/>
     </div>
 </x-app-layout>
