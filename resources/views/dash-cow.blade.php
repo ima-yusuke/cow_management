@@ -21,11 +21,11 @@
 
         <x-dash-register-cow title="区分">
             <select name="category" class="md:flex-1 md:m-0 m-6" id="category_select">
-                <option value="0">子</option>
-                <option value="1" class="male">父</option>
-                <option value="2" class="male">祖父</option>
-                <option value="3" class="hidden female">母</option>
-                <option value="4" class="hidden female">祖母</option>
+                <option value=0>子</option>
+                <option value=1 class="male">父</option>
+                <option value=2 class="male">祖父</option>
+                <option value=3 class="hidden female">母</option>
+                <option value=4 class="hidden female">祖母</option>
             </select>
         </x-dash-register-cow>
 

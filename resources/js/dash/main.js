@@ -30,7 +30,7 @@ SexSelect.addEventListener('change', (event) => {
     let males = document.getElementsByClassName('male');
     let females = document.getElementsByClassName('female');
 
-    if (selectedValue == '0') {
+    if (selectedValue == 0) {
         //オス選択時の処理
         for (let i=0;i<males.length;i++){
             males[i].style.display = "block";
@@ -38,7 +38,7 @@ SexSelect.addEventListener('change', (event) => {
         for(let i=0;i<females.length;i++){
             females[i].style.display = "none";
         }
-    } else if (selectedValue == '1') {
+    } else if (selectedValue == 1) {
         //メス選択時の処理
         for (let i=0;i<males.length;i++){
             males[i].style.display = "none";
