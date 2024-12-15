@@ -20,38 +20,33 @@ for (let i=0;i<EditBtns.length;i++){
     })
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const SexSelect = document.getElementById('sex_select');
-    const CategorySelect = document.getElementById('category_select');
+// セレクトボックスを取得
+const SexSelect = document.getElementById('sex_select');
+const CategorySelect = document.getElementById('category_select');
 
-    if (!SexSelect || !CategorySelect) {
-        console.error('セレクトボックスが見つかりません');
-        return;
+// 値が変更されたときのイベントリスナーを追加
+SexSelect.addEventListener('change', (event) => {
+    const selectedValue = event.target.value; // 選択された値を取得
+    let males = document.getElementsByClassName('male');
+    let females = document.getElementsByClassName('female');
+
+    if (selectedValue == '0') {
+        //オス選択時の処理
+        for (let i=0;i<males.length;i++){
+            males[i].style.display = "block";
+        }
+        for(let i=0;i<females.length;i++){
+            females[i].style.display = "none";
+        }
+    } else if (selectedValue == '1') {
+        //メス選択時の処理
+        for (let i=0;i<males.length;i++){
+            males[i].style.display = "none";
+        }
+        for(let i=0;i<females.length;i++){
+            females[i].style.display = "block";
+        }
     }
 
-    SexSelect.addEventListener('change', (event) => {
-        const selectedValue = event.target.value; // 選択された値を取得
-        let males = document.getElementsByClassName('male');
-        let females = document.getElementsByClassName('female');
-
-        if (selectedValue === '0') {
-            // オス選択時の処理
-            for (let i = 0; i < males.length; i++) {
-                males[i].style.display = "block";
-            }
-            for (let i = 0; i < females.length; i++) {
-                females[i].style.display = "none";
-            }
-        } else if (selectedValue === '1') {
-            // メス選択時の処理
-            for (let i = 0; i < males.length; i++) {
-                males[i].style.display = "none";
-            }
-            for (let i = 0; i < females.length; i++) {
-                females[i].style.display = "block";
-            }
-        }
-
-        CategorySelect.value = 0;
-    });
+    CategorySelect.value = 0;
 });
