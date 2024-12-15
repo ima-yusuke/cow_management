@@ -20,9 +20,9 @@
                         <input class="hidden" name="id" value="{{$data["id"]}}">
                     </form>
                 </td>
-                <td class="border px-4 py-2 w-[10%]">
+                <td class="border px-4 py-2 md:w-[10%]">
                     <div class="flex justify-center">
-                        <button type="button" class="bg-gray-800 text-white rounded-lg p-2 editBtn">編集</button>
+                        <button type="button" class="bg-gray-800 text-white rounded-lg p-2 editBtn flex-shrink-0">編集</button>
                     </div>
                 </td>
                 <td class="border px-4 py-2 w-[10%]">
@@ -30,7 +30,7 @@
                         @csrf
                         @method('delete')
                         <input type="hidden" name="id" value="{{$data->id}}">
-                        <button type="submit" class="bg-gray-800 text-white rounded-lg p-2">削除</button>
+                        <button type="submit" class="bg-gray-800 text-white rounded-lg p-2 flex-shrink-0">削除</button>
                     </form>
                 </td>
             </tr>
