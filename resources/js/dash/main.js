@@ -23,31 +23,43 @@ for (let i=0;i<EditBtns.length;i++){
 // セレクトボックスを取得
 const SexSelect = document.getElementById('sex_select');
 const CategorySelect = document.getElementById('category_select');
-
-// 値が変更されたときのイベントリスナーを追加
 SexSelect.addEventListener('change', (event) => {
-    const selectedValue = event.target.value; // 選択された値を取得
-    let males = document.getElementsByClassName('male');
-    let females = document.getElementsByClassName('female');
+    const selectedValue = event.target.value;
+    const males = document.getElementsByClassName('male');
+    const females = document.getElementsByClassName('female');
+
+    // デバッグ: 要素数の確認
+    alert("males: " + males.length + ", females: " + females.length);
 
     if (selectedValue == 0) {
-        //オス選択時の処理
         alert("オス");
-        for (let i=0;i<males.length;i++){
-            males[i].style.display = "block";
+        if (males.length === 0 || females.length === 0) {
+            alert("該当要素が見つかりません");
+            return;
         }
-        for(let i=0;i<females.length;i++){
-            females[i].style.display = "none";
-        }
+
+        // オス選択時の処理
+        Array.from(males).forEach(male => {
+            male.style.setProperty("display", "block", "important");
+        });
+        Array.from(females).forEach(female => {
+            female.style.setProperty("display", "none", "important");
+        });
+
     } else if (selectedValue == 1) {
         alert("メス");
-        //メス選択時の処理
-        for (let i=0;i<males.length;i++){
-            males[i].style.display = "none";
+        if (males.length === 0 || females.length === 0) {
+            alert("該当要素が見つかりません");
+            return;
         }
-        for(let i=0;i<females.length;i++){
-            females[i].style.display = "block";
-        }
+
+        // メス選択時の処理
+        Array.from(males).forEach(male => {
+            male.style.setProperty("display", "none", "important");
+        });
+        Array.from(females).forEach(female => {
+            female.style.setProperty("display", "block", "important");
+        });
     }
 
     CategorySelect.value = 0;
