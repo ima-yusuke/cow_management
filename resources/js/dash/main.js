@@ -32,6 +32,7 @@ SexSelect.addEventListener('change', (event) => {
 
     if (selectedValue == 0) {
         //オス選択時の処理
+        alert("オス");
         for (let i=0;i<males.length;i++){
             males[i].style.display = "block";
         }
@@ -39,6 +40,7 @@ SexSelect.addEventListener('change', (event) => {
             females[i].style.display = "none";
         }
     } else if (selectedValue == 1) {
+        alert("メス");
         //メス選択時の処理
         for (let i=0;i<males.length;i++){
             males[i].style.display = "none";
