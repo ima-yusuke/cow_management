@@ -23,44 +23,53 @@ for (let i=0;i<EditBtns.length;i++){
 // セレクトボックスを取得
 const SexSelect = document.getElementById('sex_select');
 const CategorySelect = document.getElementById('category_select');
+
+// 値が変更されたときのイベントリスナーを追加
 SexSelect.addEventListener('change', (event) => {
-    const selectedValue = event.target.value;
-    const males = document.getElementsByClassName('male');
-    const females = document.getElementsByClassName('female');
+    const selectedValue = event.target.value; // 選択された値を取得
+    let males = document.getElementsByClassName('male');
+    let females = document.getElementsByClassName('female');
 
-    // デバッグ: 要素数の確認
-    alert("males: " + males.length + ", females: " + females.length);
-
-    if (selectedValue == 0) {
-        alert("オス");
-        if (males.length === 0 || females.length === 0) {
-            alert("該当要素が見つかりません");
-            return;
-        }
-
+    if (selectedValue === '0') {
         // オス選択時の処理
-        Array.from(males).forEach(male => {
-            male.style.setProperty("display", "block", "important");
-        });
-        Array.from(females).forEach(female => {
-            female.style.setProperty("display", "none", "important");
-        });
 
-    } else if (selectedValue == 1) {
-        alert("メス");
-        if (males.length === 0 || females.length === 0) {
-            alert("該当要素が見つかりません");
-            return;
+        // オスのoptionを表示にする
+        for (let i=0;i<males.length;i++){
+           ShowOption(males[0]);
         }
 
-        // メス選択時の処理
-        Array.from(males).forEach(male => {
-            male.style.setProperty("display", "none", "important");
-        });
-        Array.from(females).forEach(female => {
-            female.style.setProperty("display", "block", "important");
-        });
+        // メスのoptionを非表示にする
+        for(let i=0;i<females.length;i++){
+            HideOption(females[0]);
+        }
+    } else if (selectedValue === '1') {
+        //メス選択時の処理
+
+        // オスのoptionを非表示にする
+        for (let i=0;i<males.length;i++){
+            HideOption(males[0]);
+        }
+
+        // メスのoptionを表示する
+        for(let i=0;i<females.length;i++) {
+           ShowOption(females[0]);
+        }
     }
 
     CategorySelect.value = 0;
 });
+
+// オプションを表示する関数
+function ShowOption(option){
+    const parentDiv = option.parentNode; // 親divを取得
+    parentDiv.remove(); // divを削除
+    CategorySelect.appendChild(option); // optionを<select>に戻す
+}
+
+// オプションを非表示にする関数
+function HideOption(option){
+    let newDiv = document.createElement('div');
+    newDiv.appendChild(option);
+    newDiv.classList.add("hidden");
+    CategorySelect.appendChild(newDiv);
+}
