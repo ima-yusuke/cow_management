@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cow;
+use App\Models\ParentCow;
 use App\Models\Ranch;
 use App\Models\CattleBarn;
 use App\Models\Status;
@@ -16,6 +17,7 @@ class DashCowController extends Controller
         $ranchArray = Ranch::all();
         $cattleBarnArray = CattleBarn::all();
         $statusArray = Status::all();
-        return view('dash-cow',compact('ranchArray','cattleBarnArray','statusArray'));
+        $parentArray = ParentCow::all();
+        return view('dash-cow',compact('ranchArray','cattleBarnArray','statusArray','parentArray'));
     }
 }
