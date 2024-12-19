@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ParentCow;
 
 class Ranch extends Model
 {
@@ -17,4 +18,10 @@ class Ranch extends Model
 //    {
 //        return $this->hasMany(Cow::class);
 //    }
+    // ParentCowモデルとのリレーション
+    public function parentCows()
+    {
+        return $this->hasMany(ParentCow::class);
+    }
+    // CattleBarnモデルとのリレーション
 }

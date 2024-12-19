@@ -74,7 +74,7 @@ function HideOption(option){
     CategorySelect.appendChild(newDiv);
 }
 
-// メスのoptionを非表示にする
+// メスのoptionを非表示にする（初期状態）
 for(let i=0;i<females.length;i++){
     HideOption(females[0]);
 }
