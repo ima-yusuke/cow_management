@@ -1,5 +1,6 @@
 <x-app-layout>
-    <form class="md:m-6 flex flex-col gap-6">
+    <form method="post" action="{{route("add_cow")}}" class="md:m-6 flex flex-col gap-6">
+        @csrf
         <x-dash-register-cow title="名号">
             <input type="text" name="name" class="md:flex-1 md:m-0 m-6" placeholder="工">
         </x-dash-register-cow>
@@ -30,7 +31,7 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="牧場">
-            <select name="ranch" class="md:flex-1 md:m-0 m-6" id="cow_ranch_select">
+            <select name="ranch_id" class="md:flex-1 md:m-0 m-6" id="cow_ranch_select">
                 @if(count($ranchArray)<1)
                     <option value="">牧場が登録されていません</option>
                 @else
@@ -42,7 +43,7 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="牛舎">
-            <select name="cattle_barn" class="md:flex-1 md:m-0 m-6" id="cow_cattle_barn_select">
+            <select name="cattle_barn_id" class="md:flex-1 md:m-0 m-6" id="cow_cattle_barn_select">
                 @if(count($cattleBarnArray)<1)
                     <option value="" disabled selected>牛舎が登録されていません</option>
                 @endif
@@ -50,7 +51,7 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="種牛">
-            <select name="parent" class="md:flex-1 md:m-0 m-6" id="cow_parent_select">
+            <select name="parent_id" class="md:flex-1 md:m-0 m-6" id="cow_parent_select">
                 @if(count($parentArray)<1)
                     <option value="" disabled selected>種牛が登録されていません</option>
                 @endif
@@ -58,7 +59,7 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="状態">
-            <select name="status" class="md:flex-1 md:m-0 m-6">
+            <select name="status_id" class="md:flex-1 md:m-0 m-6">
                 @if(count($statusArray)<1)
                     <option value="" disabled selected>状態が登録されていません</option>
                 @else
@@ -69,6 +70,9 @@
             </select>
         </x-dash-register-cow>
 
+        <div class="flex justify-center">
+            <button type="submit" class="py-2 px-4 bg-blue-500 text-white rounded-md">登録</button>
+        </div>
     </form>
 </x-app-layout>
 

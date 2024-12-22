@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('cattle_barns', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // 牧場名を保存するカラム
+            $table->foreignId('ranch_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

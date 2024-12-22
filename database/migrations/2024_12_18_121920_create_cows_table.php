@@ -26,10 +26,10 @@ return new class extends Migration
                 ->nullable()       // NULL許容にする
                 ->constrained()
                 ->nullOnDelete(); // cattle_barn削除時、関連するcowのcattle_barn_idをNULLに設定
-            $table->foreignId('parent_id')
+            $table->foreignId('parent_cows_id')
                 ->nullable()       // NULL許容にする
-                ->constrained('cows')
-                ->nullOnDelete(); // cow削除時、関連するcowのparent_idをNULLに設定
+                ->constrained('parent_cows')
+                ->nullOnDelete(); // parent削除時、関連するcowのparent_idをNULLに設定
             $table->foreignId('status_id')
                 ->nullable()       // NULL許容にする
                 ->constrained()
