@@ -30,7 +30,7 @@
                     </td>
                     <td class="border px-4 py-2">
                         <div class="flex justify-center">
-                            @if($data->sex == 1)
+                            @if($data->sex == 0)
                                 オス
                             @else
                                 メス
