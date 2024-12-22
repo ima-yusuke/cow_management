@@ -1,6 +1,7 @@
 const EditBtns = document.getElementsByClassName('editBtn');
+const EditBtns2 = document.getElementsByClassName('editBtn2');
 
-// 更新
+// 更新1
 for (let i=0;i<EditBtns.length;i++){
     EditBtns[i].addEventListener("click",function(e){
         let trElement = EditBtns[i].parentElement.parentElement.parentElement;
@@ -14,8 +15,28 @@ for (let i=0;i<EditBtns.length;i++){
         }else {
             EditBtns[i].innerText = "更新";
             pElement.style.display = "none";
-            inputElement.classList.remove("hidden");
+            form.classList.remove("hidden");
             inputElement.value = pElement.innerText;
+        }
+    })
+}
+
+// 更新2
+for (let i=0;i<EditBtns2.length;i++){
+    EditBtns2[i].addEventListener("click",function(e){
+        let selectElement = document.getElementsByClassName("newSelect")[i];
+        let inputElement = document.getElementsByClassName("newName")[i];
+        let form= document.getElementsByClassName("updateForm")[i];
+
+        if(EditBtns2[i].innerText === "更新"){
+            form.submit();
+        }else {
+            EditBtns2[i].innerText = "更新";
+            selectElement.previousElementSibling.style.display = "none";
+            inputElement.previousElementSibling.style.display = "none";
+            selectElement.classList.remove("hidden");
+            inputElement.classList.remove("hidden");
+            inputElement.value =  inputElement.previousElementSibling.innerText;
         }
     })
 }

@@ -12,27 +12,27 @@
         <tbody>
         @foreach($dataArray as $data)
             <tr>
-                <td class="border px-4 py-2 w-[40%]">
-                    <p>{{$data->ranch["name"]}}</p>
-                    <form method="post" action="{{route("update_$route")}}" class="flex justify-start">
-                        @csrf
-                        @method('patch')
-                        <input type="text" class="hidden" name="name">
+                <form method="post" action="{{route("update_$route")}}" class="updateForm">
+                    @csrf
+                    @method('patch')
+                    <td class="border px-4 py-2 w-[40%]">
+                        <p>{{$data->ranch["name"]}}</p>
+                        <select name="ranch_id" class="hidden newSelect">
+                            @foreach($ranchArray as $ranch)
+                                <option value="{{$ranch["id"]}}">{{$ranch["name"]}}</option>
+                            @endforeach
+                        </select>
                         <input class="hidden" name="id" value="{{$data["id"]}}">
-                    </form>
-                </td>
-                <td class="border px-4 py-2 w-[40%]">
-                    <p>{{$data->name}}</p>
-                    <form method="post" action="{{route("update_$route")}}" class="flex justify-start">
-                        @csrf
-                        @method('patch')
-                        <input type="text" class="hidden" name="name">
-                        <input class="hidden" name="id" value="{{$data["id"]}}">
-                    </form>
-                </td>
+                    </td>
+                    <td class="border px-4 py-2 w-[40%]">
+                        <p>{{$data->name}}</p>
+                        <input type="text" name="name" class="hidden newName">
+                    </td>
+                </form>
+
                 <td class="border px-4 py-2 md:w-[10%]">
                     <div class="flex justify-center">
-                        <button type="button" class="bg-gray-800 text-white rounded-lg p-2 editBtn flex-shrink-0">編集</button>
+                        <button type="button" class="bg-gray-800 text-white rounded-lg p-2 editBtn2 flex-shrink-0">編集</button>
                     </div>
                 </td>
                 <td class="border px-4 py-2 w-[10%]">

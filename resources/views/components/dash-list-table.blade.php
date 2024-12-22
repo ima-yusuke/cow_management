@@ -13,10 +13,10 @@
             <tr>
                 <td class="border px-4 py-2 w-[80%]">
                     <p>{{$data->name}}</p>
-                    <form method="post" action="{{route("update_$route")}}" class="flex justify-start">
+                    <form method="post" action="{{route("update_$route")}}" class="flex justify-start hidden">
                         @csrf
                         @method('patch')
-                        <input type="text" class="hidden" name="name">
+                        <input type="text" name="name">
                         <input class="hidden" name="id" value="{{$data["id"]}}">
                     </form>
                 </td>

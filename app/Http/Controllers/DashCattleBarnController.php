@@ -35,10 +35,12 @@ class DashCattleBarnController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'ranch_id' => 'required',
         ]);
 
         $ranch = CattleBarn::find($request->id);
         $ranch->name = $request->name;
+        $ranch->ranch_id = $request->ranch_id;
         $ranch->save();
 
         return $this->ShowPage();

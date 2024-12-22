@@ -34,6 +34,7 @@ class DashParentController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'ranch_id' => 'required',
         ]);
 
         $ranch = ParentCow::find($request->id);
