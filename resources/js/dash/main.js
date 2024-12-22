@@ -37,6 +37,15 @@ for (let i=0;i<EditBtns2.length;i++){
             selectElement.classList.remove("hidden");
             inputElement.classList.remove("hidden");
             inputElement.value =  inputElement.previousElementSibling.innerText;
+
+            // 現在の選択値を持つ <option> を選択状態にする
+            const ranchId = selectElement.previousElementSibling.dataset.id;
+            for (let j = 0; j < selectElement.options.length; j++) {
+                if (selectElement.options[j].value === ranchId) {
+                    selectElement.options[j].selected = true;
+                    break;
+                }
+            }
         }
     })
 }

@@ -16,7 +16,7 @@
                     @csrf
                     @method('patch')
                     <td class="border px-4 py-2 w-[40%]">
-                        <p>{{$data->ranch["name"]}}</p>
+                        <p data-id="{{$data->ranch["id"]}}">{{$data->ranch["name"]}}</p>
                         <select name="ranch_id" class="hidden newSelect">
                             @foreach($ranchArray as $ranch)
                                 <option value="{{$ranch["id"]}}">{{$ranch["name"]}}</option>

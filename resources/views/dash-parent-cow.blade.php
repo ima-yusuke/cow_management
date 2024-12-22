@@ -19,5 +19,5 @@
     </section>
 
     {{--登録済 種牛一覧--}}
-    <x-dash-list-table-2 :dataArray="$dataArray" tableTitle="種牛名" title="種牛" route="parent_cow"/>
+    <x-dash-list-table-2 :dataArray="$dataArray" :ranchArray="$ranchArray" tableTitle="種牛名" title="種牛" route="parent_cow"/>
 </x-app-layout>

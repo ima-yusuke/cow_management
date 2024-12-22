@@ -39,6 +39,7 @@ class DashParentController extends Controller
 
         $ranch = ParentCow::find($request->id);
         $ranch->name = $request->name;
+        $ranch->ranch_id = $request->ranch_id;
         $ranch->save();
 
         return $this->ShowPage();
