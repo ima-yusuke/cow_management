@@ -38,12 +38,9 @@
                         </div>
                     </td>
                     <td class="border px-4 py-2">
-                        <form method="post" action="" class="flex justify-center">
-                            @csrf
-                            @method('delete')
-                            <input type="hidden" name="id" value="{{$data->id}}">
-                            <button type="submit" class="bg-gray-800 text-white rounded-lg p-2 flex-shrink-0">詳細</button>
-                        </form>
+                        <div class="flex justify-center items-center">
+                            <a href="{{route("show_page",["id"=>$data["id"]])}}" class="bg-gray-800 text-white rounded-lg p-2 flex-shrink-0">詳細</a>
+                        </div>
                     </td>
                 </tr>
             @endforeach

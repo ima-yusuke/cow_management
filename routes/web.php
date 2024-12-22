@@ -8,6 +8,7 @@ use App\Http\Controllers\DashRanchController;
 use App\Http\Controllers\DashStatusController;
 use App\Http\Controllers\DashParentController;
 use App\Http\Controllers\DashCowListController;
+use App\Http\Controllers\DashCowDetailController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,7 +45,11 @@ Route::patch('/parent-cow', [DashParentController::class, 'UpdateParentCow'])->n
 Route::delete('/parent-cow', [DashParentController::class, 'DeleteParentCow'])->name('delete_parent_cow');
 
 //牛一覧
-Route::get('/cow-list', [DashCowListController::class, 'ShowPage'])->name('show_page');
+Route::get('/cow-list', [DashCowListController::class, 'ShowPage'])->name('show_list');
+
+//牛詳細
+Route::get('/cow-list{id}', [DashCowDetailController::class, 'ShowPage'])->name('show_page');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
