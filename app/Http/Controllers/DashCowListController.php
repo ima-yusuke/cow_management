@@ -11,6 +11,6 @@ class DashCowListController extends Controller
     public function ShowPage()
     {
         $dataArray = Cow::all();
-        return view('dash-cow-list',compact('dataArray'));
+        return view('home',compact('dataArray'));
     }
 }

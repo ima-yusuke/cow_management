@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-user-layout>
     <section class="flex justify-center items-center">
         <table class="table-auto w-full">
             <thead>
@@ -39,7 +39,7 @@
                     </td>
                     <td class="border px-4 py-2">
                         <div class="flex justify-center items-center">
-                            <a href="{{route("show_page",["id"=>$data["id"]])}}" class="bg-gray-800 text-white rounded-lg p-2 flex-shrink-0">詳細</a>
+                            <a href="/detail/{{$data["id"]}}" class="bg-gray-800 text-white rounded-lg p-2 flex-shrink-0">詳細</a>
                         </div>
                     </td>
                 </tr>
@@ -47,4 +47,4 @@
             </tbody>
         </table>
     </section>
-</x-app-layout>
+</x-user-layout>
