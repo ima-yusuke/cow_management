@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-user-layout>
     <section class="p-8 flex flex-col gap-8">
         <article class="flex justify-between items-center">
             <h1 class="text-4xl">基本情報</h1>
@@ -33,4 +33,4 @@
             </aside>
         </article>
     </section>
-</x-app-layout>
+</x-user-layout>
