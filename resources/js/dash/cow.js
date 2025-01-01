@@ -1,3 +1,4 @@
+// 管理画面
 const CowRanchSelectElement = document.getElementById('cow_ranch_select');
 const CowCattleBarnSelectElement = document.getElementById('cow_cattle_barn_select');
 const CowParentSelectElement = document.getElementById('cow_parent_select');
@@ -51,3 +52,11 @@ CreateOption(CowRanchSelectElement.children[0].value, CowCattleBarnSelectElement
 CreateOption(CowRanchSelectElement.children[0].value, CowParentSelectElement, parentArray);
 
 
+// ユーザーページ
+const EditCowBtns = document.getElementsByClassName('editCowDetail');
+
+for (let i = 0; i < EditCowBtns.length; i++) {
+    EditCowBtns[i].addEventListener('click', (event) => {
+
+    });
+}

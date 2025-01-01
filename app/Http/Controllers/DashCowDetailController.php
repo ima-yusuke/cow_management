@@ -11,6 +11,6 @@ class DashCowDetailController extends Controller
     public function ShowPage($id)
     {
         $cowDetail = Cow::find($id);
-        return view('dash-cow-detail',compact('cowDetail'));
+        return view('cow-detail',compact('cowDetail'));
     }
 }

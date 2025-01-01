@@ -14,19 +14,14 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="性別">
-            <select name="sex" class="md:flex-1 md:m-0 m-6" id="sex_select">
+            <select name="sex" class="md:flex-1 md:m-0 m-6 sexSelect">
                 <option value="0">オス</option>
                 <option value="1">メス</option>
             </select>
         </x-dash-register-cow>
 
         <x-dash-register-cow title="区分">
-            <select name="category" class="md:flex-1 md:m-0 m-6" id="category_select">
-                <option value="0">子</option>
-                <option value="1" class="male">父</option>
-                <option value="2" class="male">祖父</option>
-                <option value="3" class="female">母</option>
-                <option value="4" class="female">祖母</option>
+            <select name="category" class="md:flex-1 md:m-0 m-6 categorySelect">
             </select>
         </x-dash-register-cow>
 

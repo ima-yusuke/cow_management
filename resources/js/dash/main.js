@@ -51,62 +51,76 @@ for (let i=0;i<EditBtns2.length;i++){
 }
 
 // セレクトボックスを取得
-const SexSelect = document.getElementById('sex_select');
-const CategorySelect = document.getElementById('category_select');
-let males = document.getElementsByClassName('male');
-let females = document.getElementsByClassName('female');
+const SexSelect = document.getElementsByClassName('sexSelect');
 
-// 値が変更されたときのイベントリスナーを追加
-SexSelect.addEventListener('change', (event) => {
-    const selectedValue = event.target.value; // 選択された値を取得
+const CategorySelect = document.getElementsByClassName('categorySelect');
 
-    if (selectedValue === '0') {
-        // オス選択時の処理
-
-        // オスのoptionを表示にする
-        for (let i=0;i<males.length;i++){
-           ShowOption(males[0]);
-        }
-
-        // メスのoptionを非表示にする
-        for(let i=0;i<females.length;i++){
-            HideOption(females[0]);
-        }
-    } else if (selectedValue === '1') {
-        //メス選択時の処理
-
-        // オスのoptionを非表示にする
-        for (let i=0;i<males.length;i++){
-            HideOption(males[0]);
-        }
-
-        // メスのoptionを表示する
-        for(let i=0;i<females.length;i++) {
-           ShowOption(females[0]);
+const currentUrl = window.location.href;//現在のURLを取得
+function CreateOption(sex,idx){
+    let maleArray =["子","父","祖父"];
+    let femaleArray =["子","母","祖母"];
+    let useArray = null;
+    let currentValue = null;
+    if (currentUrl.includes('detail')) {
+        if(cowDetail["category"]!=null){
+            currentValue = cowDetail["category"]
         }
     }
-
-    CategorySelect.value = 0;
-});
-
-// オプションを表示する関数
-function ShowOption(option){
-    const parentDiv = option.parentNode; // 親divを取得
-    parentDiv.remove(); // divを削除
-    CategorySelect.appendChild(option); // optionを<select>に戻す
+    if(sex==="male"){
+        useArray = maleArray;
+    }else{
+        useArray = femaleArray;
+    }
+    for (let i = 0; i < useArray.length; i++) {
+        let option = document.createElement('option');
+        option.value = i;
+        option.textContent = useArray[i];
+        if (currentValue === i) {
+            option.selected = true;
+        }
+        CategorySelect[0].appendChild(option);
+    }
 }
 
-// オプションを非表示にする関数
-function HideOption(option){
-    let newDiv = document.createElement('div');
-    newDiv.appendChild(option);
-    newDiv.classList.add("hidden");
-    CategorySelect.appendChild(newDiv);
+function DeleteOption(SelectElement) {
+    while (SelectElement.firstChild) {
+        SelectElement.removeChild(SelectElement.firstChild);
+    }
 }
 
-// メスのoptionを非表示にする（初期状態）
-for(let i=0;i<females.length;i++){
-    HideOption(females[0]);
+for (let i=0;i<SexSelect.length;i++){
+    SexSelect[i].addEventListener('change', (event) => {
+        const selectedValue = event.target.value; // 選択された値を取得
+
+        if (selectedValue === '0') {
+            // オス選択時の処理
+
+            DeleteOption(CategorySelect[i]);
+            CreateOption("male");
+
+
+        } else if (selectedValue === '1') {
+            //メス選択時の処理
+
+            // オスのoptionを非表示にし、メスのoptionを表示する
+            DeleteOption(CategorySelect[i]);
+            CreateOption("female")
+        }
+
+    });
+}
+
+window.onload = function(){
+    if (currentUrl.includes('detail')) {
+       DeleteOption(CategorySelect[0]);
+       if(cowDetail["sex"]===0){
+           CreateOption("male")
+       }else{
+           CreateOption("female")
+       }
+    }else{
+        CreateOption("male");
+    }
 }
 
 
