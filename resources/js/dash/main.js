@@ -78,7 +78,6 @@ function CreateOption(sex,idx){
         if (currentValue === i) {
             option.selected = true;
         }
-        console.log(option);
         CategorySelect[0].appendChild(option);
     }
 }

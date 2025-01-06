@@ -63,8 +63,13 @@ const CowEditButton = document.getElementById('edit_cow_detail_btn');
 const CowDetailContainer = document.getElementById('cow_detail_container');
 const CowEditContainer = document.getElementById('cow_edit_container');
 const UpdateCowButton = document.getElementById('update_cow_btn');
+const UpdateCowForm = document.getElementById('update_cow_form');
 CowEditButton.addEventListener('click', function() {
   CowDetailContainer.classList.toggle('hidden');
   CowEditContainer.classList.toggle('hidden');
   UpdateCowButton.classList.toggle('hidden');
+})
+
+UpdateCowButton.addEventListener('click', function() {
+  UpdateCowForm.submit();
 })

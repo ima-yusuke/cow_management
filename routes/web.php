@@ -16,12 +16,12 @@ Route::get('/', [DashCowListController::class, 'ShowPage'])->name('show_list');
 
 //牛詳細
 Route::get('/detail/{id}', [DashCowDetailController::class, 'ShowPage'])->name('show_page');
+Route::patch('/detail/{id}', [DashCowDetailController::class, 'UpdateCow'])->name('update_cow');
 
 Route::middleware(['auth'])->group(function () {
     // 牛登録
     Route::get('/cow', [DashCowController::class, 'ShowPage'])->name('show_page');
     Route::post('/cow', [DashCowController::class, 'AddCow'])->name('add_cow');
-    Route::patch('/cow', [DashCowController::class, 'UpdateCow'])->name('update_cow');
     Route::delete('/cow', [DashCowController::class, 'DeleteCow'])->name('delete_cow');
 
     // 牧場
