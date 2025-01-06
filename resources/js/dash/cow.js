@@ -1,5 +1,5 @@
 import { currentUrl } from './main.js';
-// 管理画面
+
 const CowRanchSelectElement = document.getElementsByClassName('cowRanchSelect');
 const CowCattleBarnSelectElement = document.getElementsByClassName('cowCattleBarnSelect');
 const CowParentSelectElement = document.getElementsByClassName('cowParentSelect');
@@ -58,7 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-// ユーザーページ
-
+// 編集画面と通常画面切替
+const CowEditButton = document.getElementById('edit_cow_detail_btn');
+const CowDetailContainer = document.getElementById('cow_detail_container');
+const CowEditContainer = document.getElementById('cow_edit_container');
+const UpdateCowButton = document.getElementById('update_cow_btn');
+CowEditButton.addEventListener('click', function() {
+  CowDetailContainer.classList.toggle('hidden');
+  CowEditContainer.classList.toggle('hidden');
+  UpdateCowButton.classList.toggle('hidden');
+})
