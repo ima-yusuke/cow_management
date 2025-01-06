@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cow;
+use App\Models\Ranch;
 use Illuminate\Http\Request;
 
 class DashCowListController extends Controller
@@ -13,4 +14,5 @@ class DashCowListController extends Controller
         $dataArray = Cow::all();
         return view('home',compact('dataArray'));
     }
+
 }

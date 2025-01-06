@@ -55,7 +55,7 @@ const SexSelect = document.getElementsByClassName('sexSelect');
 
 const CategorySelect = document.getElementsByClassName('categorySelect');
 
-const currentUrl = window.location.href;//現在のURLを取得
+export const currentUrl = window.location.href;//現在のURLを取得
 function CreateOption(sex,idx){
     let maleArray =["子","父","祖父"];
     let femaleArray =["子","母","祖母"];
@@ -78,6 +78,7 @@ function CreateOption(sex,idx){
         if (currentValue === i) {
             option.selected = true;
         }
+        console.log(option);
         CategorySelect[0].appendChild(option);
     }
 }

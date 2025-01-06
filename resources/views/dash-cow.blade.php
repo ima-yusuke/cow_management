@@ -26,7 +26,7 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="牧場">
-            <select name="ranch_id" class="md:flex-1 md:m-0 m-6" id="cow_ranch_select">
+            <select name="ranch_id" class="md:flex-1 md:m-0 m-6 cowRanchSelect" id="cow_ranch_select">
                 @if(count($ranchArray)<1)
                     <option value="">牧場が登録されていません</option>
                 @else
@@ -38,7 +38,7 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="牛舎">
-            <select name="cattle_barn_id" class="md:flex-1 md:m-0 m-6" id="cow_cattle_barn_select">
+            <select name="cattle_barn_id" class="md:flex-1 md:m-0 m-6 cowCattleBarnSelect" id="cow_cattle_barn_select">
                 @if(count($cattleBarnArray)<1)
                     <option value="" disabled selected>牛舎が登録されていません</option>
                 @endif
@@ -46,7 +46,7 @@
         </x-dash-register-cow>
 
         <x-dash-register-cow title="種牛">
-            <select name="parent_id" class="md:flex-1 md:m-0 m-6" id="cow_parent_select">
+            <select name="parent_id" class="md:flex-1 md:m-0 m-6 cowParentSelect" id="cow_parent_select">
                 @if(count($parentArray)<1)
                     <option value="" disabled selected>種牛が登録されていません</option>
                 @endif

@@ -1,23 +1,26 @@
+import { currentUrl } from './main.js';
 // 管理画面
-const CowRanchSelectElement = document.getElementById('cow_ranch_select');
-const CowCattleBarnSelectElement = document.getElementById('cow_cattle_barn_select');
-const CowParentSelectElement = document.getElementById('cow_parent_select');
+const CowRanchSelectElement = document.getElementsByClassName('cowRanchSelect');
+const CowCattleBarnSelectElement = document.getElementsByClassName('cowCattleBarnSelect');
+const CowParentSelectElement = document.getElementsByClassName('cowParentSelect');
 let ranchArray = window.ranches;
 let cattleBarnArray = window.cattleBarns;
 let parentArray = window.parents;
 
 // 牧場のセレクトボックスが変更したとき
-CowRanchSelectElement.addEventListener('change', (event) => {
-    const selectedValue = event.target.value;
+for (let i = 0; i < CowRanchSelectElement.length; i++) {
+    CowRanchSelectElement[i].addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
 
-    DeleteOption(CowCattleBarnSelectElement);
+        DeleteOption(CowCattleBarnSelectElement[i]);
 
-    DeleteOption(CowParentSelectElement);
+        DeleteOption(CowParentSelectElement[i]);
 
-    CreateOption(selectedValue, CowCattleBarnSelectElement, cattleBarnArray);
+        CreateOption(selectedValue, CowCattleBarnSelectElement[i], cattleBarnArray);
 
-    CreateOption(selectedValue, CowParentSelectElement, parentArray);
-});
+        CreateOption(selectedValue, CowParentSelectElement[i], parentArray);
+    });
+}
 
 function DeleteOption(SelectElement) {
     while (SelectElement.firstChild) {
@@ -48,15 +51,14 @@ function CreateOption(Value,SelectElement,ArrayData) {
 }
 
 // デフォルトで牧場の牛舎と種牛を表示
-CreateOption(CowRanchSelectElement.children[0].value, CowCattleBarnSelectElement, cattleBarnArray);
-CreateOption(CowRanchSelectElement.children[0].value, CowParentSelectElement, parentArray);
+document.addEventListener('DOMContentLoaded', function() {
+    if (currentUrl.includes('cow')) {
+        CreateOption(CowRanchSelectElement[0].children[0].value, CowCattleBarnSelectElement[0], cattleBarnArray);
+        CreateOption(CowRanchSelectElement[0].children[0].value, CowParentSelectElement[0], parentArray);
+    }
+});
+
 
 
 // ユーザーページ
-const EditCowBtns = document.getElementsByClassName('editCowDetail');
 
-for (let i = 0; i < EditCowBtns.length; i++) {
-    EditCowBtns[i].addEventListener('click', (event) => {
-
-    });
-}
