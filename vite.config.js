@@ -6,9 +6,11 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/side-menu.css',
                 'resources/js/app.js',
                 'resources/js/dash/main.js',
-                'resources/js/dash/cow.js'
+                'resources/js/dash/cow.js',
+                'resources/js/side-menu.js'
             ],
             refresh: true,
         }),
