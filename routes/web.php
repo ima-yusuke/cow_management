@@ -15,14 +15,14 @@ Route::get('/', function () {
     return view('home');
 });
 
-//牛一覧
-Route::get('/cow-list', [DashCowListController::class, 'ShowPage'])->name('show_list');
-
-//牛詳細
-Route::get('/detail/{id}', [DashCowDetailController::class, 'ShowPage'])->name('show_page');
-Route::patch('/detail/{id}', [DashCowDetailController::class, 'UpdateCow'])->name('update_cow');
-
 Route::middleware(['auth'])->group(function () {
+    //牛一覧
+    Route::get('/cow-list', [DashCowListController::class, 'ShowPage'])->name('cow-list');
+
+    //牛詳細
+    Route::get('/detail/{id}', [DashCowDetailController::class, 'ShowPage'])->name('show_page');
+    Route::patch('/detail/{id}', [DashCowDetailController::class, 'UpdateCow'])->name('update_cow');
+
     // 牛登録
     Route::get('/cow', [DashCowController::class, 'ShowPage'])->name('show_page');
     Route::post('/cow', [DashCowController::class, 'AddCow'])->name('add_cow');
