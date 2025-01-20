@@ -10,9 +10,13 @@ use App\Http\Controllers\DashParentController;
 use App\Http\Controllers\DashCowListController;
 use App\Http\Controllers\DashCowDetailController;
 
+//トップページ
+Route::get('/', function () {
+    return view('home');
+});
 
 //牛一覧
-Route::get('/', [DashCowListController::class, 'ShowPage'])->name('show_list');
+Route::get('/cow-list', [DashCowListController::class, 'ShowPage'])->name('show_list');
 
 //牛詳細
 Route::get('/detail/{id}', [DashCowDetailController::class, 'ShowPage'])->name('show_page');

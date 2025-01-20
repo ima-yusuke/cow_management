@@ -1,0 +1,9 @@
+/* From https://css.glass */
+.loginContainer {
+    background: rgba(237, 246, 238, 0.32);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.6px);
+    -webkit-backdrop-filter: blur(4.6px);
+    border: 1px solid rgba(237, 246, 238, 0.9);
+}

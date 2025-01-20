@@ -1,50 +1,45 @@
 <x-user-layout>
-    <section class="flex justify-center items-center">
-        <table class="table-auto w-full">
-            <thead>
-            <tr>
-                <th class="text-center border px-4 py-2 bg-gray-700 text-white">/</th>
-                <th class="text-center border px-4 py-2 bg-gray-700 text-white">耳標番号</th>
-                <th class="text-center border px-4 py-2 bg-gray-700 text-white">名号</th>
-                <th class="text-center border px-4 py-2 bg-gray-700 text-white">性別</th>
-                <th class="px-4 py-2 border bg-gray-700 text-white">詳細</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($dataArray as $idx=>$data)
-                <tr>
-                    <td class="border px-4 py-2">
-                        <div class="flex justify-center">
-                            {{$idx+1}}
-                        </div>
-                    </td>
-                    <td class="border px-4 py-2 md:w-[10%]">
-                        <div class="flex justify-center">
-                            {{$data->tag_num}}
-                        </div>
-                    </td>
-                    <td class="border px-4 py-2">
-                        <div class="flex justify-center">
-                            {{$data->name}}
-                        </div>
-                    </td>
-                    <td class="border px-4 py-2">
-                        <div class="flex justify-center">
-                            @if($data->sex == 0)
-                                オス
-                            @else
-                                メス
-                            @endif
-                        </div>
-                    </td>
-                    <td class="border px-4 py-2">
-                        <div class="flex justify-center items-center">
-                            <a href="/detail/{{$data["id"]}}" class="bg-gray-800 text-white rounded-lg p-2 flex-shrink-0">詳細</a>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+    <section class="min-h-screen w-full flex justify-center items-center" style="background-image: url('{{ asset("storage/img/top-pic01.jpg") }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+        <div class="loginContainer w-[80%] h-full flex flex-col items-center justify-center gap-6 py-6">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+
+                <!-- Email Address -->
+                <div>
+                    <x-input-label for="email" :value="__('Email')" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                </div>
+
+                <!-- Password -->
+                <div class="mt-4">
+                    <x-input-label for="password" :value="__('Password')" />
+
+                    <x-text-input id="password" class="block mt-1 w-full"
+                                  type="password"
+                                  name="password"
+                                  required autocomplete="current-password" />
+
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
+
+                <!-- Remember Me -->
+                <div class="block mt-4">
+                    <a href="/register" class="text-blue-700">新規登録はこちら</a>
+                </div>
+
+                <div class="flex items-center justify-end mt-4">
+                    @if (Route::has('password.request'))
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
+
+                    <x-primary-button class="ms-3">
+                        {{ __('Log in') }}
+                    </x-primary-button>
+                </div>
+            </form>
+        </div>
     </section>
 </x-user-layout>
